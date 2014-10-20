@@ -121,4 +121,9 @@ h3.highlight  {
     padding-right:27px;
 }
 
+
+
+.loginTable td {
+    padding: 5px;
+}
 /* end theme */

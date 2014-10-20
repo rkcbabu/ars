@@ -1,6 +1,7 @@
 <jsp:include page="includes/head.jsp" />
 <jsp:include page="includes/header.jsp" />
-
+<%@taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!-- Begin Body -->
 <div class="container">
 	<div class="row">
@@ -25,18 +26,18 @@
 		<form name='loginForm'
 			action="<c:url value='/j_spring_security_check' />" method='POST'>
 
-			<table>
+                    <table class="loginTable">                                                                                                                                        
 				<tr>
 					<td>User:</td>
-					<td><input type='text' name='username'></td>
+                                        <td><input class="form-control" type='text' name='username'></td>
 				</tr>
 				<tr>
 					<td>Password:</td>
-					<td><input type='password' name='password' /></td>
+                                        <td><input class="form-control" type='password' name='password' /></td>
 				</tr>
 				<tr>
-					<td colspan='2'><input name="submit" type="submit"
-						value="submit" /></td>
+                                    <td colspan='2'><input class="btn btn-primary btn-danger" name="submit" type="submit"
+						value="Submit" /></td>
 				</tr>
 			</table>
 

@@ -1,3 +1,5 @@
+<%@taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <nav class="navbar navbar-static">
     <div class="container">
       <a class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
@@ -5,7 +7,7 @@
       </a>
       <div class="nav-collapse collase">
         <ul class="nav navbar-nav">  
-          <li><a href="#">Home</a></li>
+          <li><a href="/ars/">Home</a></li>
           <li><a href="#">Link</a></li>
           <li><a href="#">Link</a></li>
         </ul>
@@ -21,8 +23,8 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i> <i class="glyphicon glyphicon-chevron-down"></i></a>
             <ul class="dropdown-menu">
-              <li><a href="#">Login</a></li>
-              <li><a href="#">Profile</a></li>
+              <li><a href="login">Login</a></li>
+              <li><a href="user/profile">Profile</a></li>
               <li class="divider"></li>
               <li><a href="#">About</a></li>
              </ul>
@@ -38,7 +40,7 @@
     <div class="row">
       <div class="col col-sm-6">
         <h1><a href="#" title="scroll down for your viewing pleasure">Apartment Rental Service</a>
-            <p class="lead">Select of your choice => Make Booking => Rent </p></h1>
+            <p class="lead">Select of your choice <i class=""></i> Make Booking => Rent </p></h1>
       </div>
       <div class="col col-sm-6">
         <div class="well pull-right">

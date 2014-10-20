@@ -1,5 +1,4 @@
-<%@taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <%@page session="true"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,5 +13,7 @@
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 		<link href="resources/css/styles.css" rel="stylesheet">
+                <link rel="shortcut icon" href="resources/images/favicon.ico" type="image/x-icon">
+                <link rel="icon" href="resources/images/favicon.ico" type="image/x-icon">
 	</head>
 	<body>

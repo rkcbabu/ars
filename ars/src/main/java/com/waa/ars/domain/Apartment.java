@@ -16,13 +16,15 @@ public class Apartment {
     private int id;
     private String title;
     private String description;
-    private List<Picture> pictures;
+    
     private Address apartmentAddress;
     private String roomCount;
     private String rate;
     private String facilities;
     private String status;
 
+    private List<Picture> pictures;
+    
     public int getId() {
         return id;
     }

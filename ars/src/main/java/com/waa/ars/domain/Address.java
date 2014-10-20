@@ -1,62 +1,64 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 package com.waa.ars.domain;
 
-/**
- *
- * @author CKarki
- */
-public class Address {
-    
-    private int id;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity(name = "ADDRESS")
+public class Address
+{
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private String street;
     private String city;
-    private String state;
-    private String zipCode;
-    
-    public int getId() {
-        return id;
-    }
+    private String stateName;
+    private String zip;
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getStreet() {
+    public String getStreet()
+    {
         return street;
     }
 
-    public void setStreet(String street) {
+    public void setStreet(String street)
+    {
         this.street = street;
     }
 
-    public String getCity() {
+    public String getCity()
+    {
         return city;
     }
 
-    public void setCity(String city) {
+    public void setCity(String city)
+    {
         this.city = city;
     }
 
-    public String getState() {
-        return state;
+    public String getStateName()
+    {
+        return stateName;
     }
 
-    public void setState(String state) {
-        this.state = state;
+    public void setStateName(String stateName)
+    {
+        this.stateName = stateName;
     }
 
-    public String getZipCode() {
-        return zipCode;
+    public String getZip()
+    {
+        return zip;
     }
 
-    public void setZipCode(String zipCode) {
-        this.zipCode = zipCode;
+    public void setZip(String zip)
+    {
+        this.zip = zip;
     }
- 
+    
+    
+    
+    
+    
     
 }
