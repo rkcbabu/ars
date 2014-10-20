@@ -17,8 +17,9 @@ public class User {
     private String firstName;
     private String lastName;
     private String phone;
-    private String address;
     private String email;
+    
+    private Address address;
     
     public int getId() {
         return id;
@@ -69,13 +70,14 @@ public class User {
         this.phone = phone;
     }
 
-    public String getAddress() {
+    public Address getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
+    public void setAddress(Address address) {
         this.address = address;
     }
+
 
     public String getEmail() {
         return email;
