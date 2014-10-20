@@ -5,11 +5,9 @@
 	http://www.springframework.org/schema/security
 	http://www.springframework.org/schema/security/spring-security.xsd">
 
-        <global-method-security secured-annotations="enabled"/>
+        <global-method-security secured-annotations="enabled" jsr250-annotations="disabled" pre-post-annotations="disabled" proxy-target-class="true"/>
     <!-- enable use-expressions -->
 	<http auto-config="false" use-expressions="true">
-		<intercept-url pattern="/admin**" access="hasRole('ROLE_ADMIN')" />
-		<intercept-url pattern="/user**" access="hasRole('ROLE_USER')" />
 		<!-- access denied page -->
 		<access-denied-handler error-page="/403" />
 		<form-login 

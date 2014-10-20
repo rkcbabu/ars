@@ -32,7 +32,8 @@ public class MainController {
 		return model;
 
 	}
-
+        
+        @Secured("ROLE_ADMIN")
 	@RequestMapping(value = "/admin**", method = RequestMethod.GET)
 	public ModelAndView adminPage() {
 
@@ -58,7 +59,7 @@ public class MainController {
         
         
         @RequestMapping(value = "/abc**", method = RequestMethod.GET)
-        @Secured("ROLE_ADMIN")
+        @Secured("ROLE_USER")
         public ModelAndView abcPage() {
 
 		ModelAndView model = new ModelAndView();
