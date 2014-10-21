@@ -6,7 +6,9 @@
 package com.waa.ars.domain;
 
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -27,8 +29,8 @@ public class Apartment {
     private String title;
     private String description;
     
-    @OneToOne
-    private Address apartmentAddress;
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private Address address;
     private String roomCount;
     private String rate;
     private String facilities;
@@ -69,12 +71,12 @@ public class Apartment {
         this.pictures = pictures;
     }
 
-    public Address getApartmentAddress() {
-        return apartmentAddress;
+    public Address getAddress() {
+        return address;
     }
 
-    public void setApartmentAddress(Address apartmentAddress) {
-        this.apartmentAddress = apartmentAddress;
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     public String getRoomCount() {

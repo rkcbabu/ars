@@ -6,12 +6,28 @@
 
 package com.waa.ars.service.impl;
 
+import com.waa.ars.domain.Apartment;
+import com.waa.ars.repository.ApartmentRepository;
 import com.waa.ars.service.ApartmentService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
  * @author CKarki
  */
+
+@Service
+@Transactional
 public class ApartmentServiceImpl implements ApartmentService{
+    
+    @Autowired
+    ApartmentRepository apartRepository;
+    
+    @Override
+    public void addApartment(Apartment apartment) {
+        apartRepository.save(apartment); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
