@@ -6,16 +6,29 @@
 package com.waa.ars.domain;
 
 import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 /**
  *
  * @author CKarki
  */
+
+@Entity(name = "RENTALINFO")
 public class RentalInfo {
 
+    @Id
+    @GeneratedValue
     private int id;
+    
+    @OneToOne
     private Apartment apartment;
+    
+    @OneToOne
     private User user;
+    
     private Date bookDate;
     private Date rentalDate;
     private Date endDate;

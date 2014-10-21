@@ -1,17 +1,12 @@
-<%-- 
-    Document   : addressForm
-    Created on : Oct 20, 2014, 1:52:49 PM
-    Author     : kunda_000
---%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Address Page</h1>
-    </body>
-</html>
+
+
+<form:form method="post" modelAttribute="address">
+    
+    <form:input path="street"/><br/>
+    <form:input path="city"/><br/>
+    
+    <input type="submit" value="Submit"/>
+    
+</form:form>

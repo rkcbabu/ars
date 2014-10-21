@@ -1,6 +1,7 @@
 
 package com.waa.ars.domain;
 
+import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,7 +12,9 @@ public class Address
 {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
+    private int id;
     private String street;
+    
     private String city;
     private String stateName;
     private String zip;
@@ -54,6 +57,16 @@ public class Address
     public void setZip(String zip)
     {
         this.zip = zip;
+    }
+
+    public int getId()
+    {
+        return id;
+    }
+
+    public void setId(int id)
+    {
+        this.id = id;
     }
     
     

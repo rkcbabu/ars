@@ -5,10 +5,10 @@
 <!-- Begin Body -->
 <div class="container">
     <div class="row">
-        <!-- <div class="col col-sm-3">
+         <div class="col col-sm-3">
             <jsp:include page="includes/sidebar.jsp" />    
-        </div>-->  
-        <div class="col col-sm-12">
+        </div>  
+        <div class="col col-sm-9">
             <div class="panel">
                 <h1>User Login</h1>
 
@@ -25,7 +25,7 @@
 
                     <table class="loginTable">                                                                                                                                        
                         <tr>
-                            <td>User:</td>
+                            <td style="width: 100px;">User:</td>
                             <td><input class="form-control" type='text' name='username'></td>
                         </tr>
                         <tr>

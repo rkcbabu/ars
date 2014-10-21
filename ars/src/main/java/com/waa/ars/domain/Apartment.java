@@ -6,23 +6,35 @@
 package com.waa.ars.domain;
 
 import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 /**
  *
  * @author CKarki
  */
-public class Apartment {
 
+@Entity(name="APARTMENT")
+public class Apartment {
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String title;
     private String description;
-
+    
+    @OneToOne
     private Address apartmentAddress;
     private String roomCount;
     private String rate;
     private String facilities;
     private String status;
-
+    
+    @OneToMany
     private List<Picture> pictures;
 
     public int getId() {

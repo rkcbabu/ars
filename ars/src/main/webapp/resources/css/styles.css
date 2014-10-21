@@ -126,4 +126,9 @@ h3.highlight  {
 .loginTable td {
     padding: 5px;
 }
+
+
+.short {
+    width: 300px;
+}
 /* end theme */

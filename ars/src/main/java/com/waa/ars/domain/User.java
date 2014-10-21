@@ -7,23 +7,50 @@
 package com.waa.ars.domain;
 
 import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Transient;
+import org.springframework.web.multipart.MultipartFile;
 
-/**
- *
- * @author CKarki
- */
+
+
+@Entity(name="USERS")
 public class User {
+    
+    @Id
+    @GeneratedValue
     private int id;
     private String username;
     private String password;
+    private String role;
     private String firstName;
     private String lastName;
     private String phone;
     private String email;
+    private boolean enabled;
     
+    private String profileImage;
+    
+    @Transient
+    private MultipartFile picture;
+
+    
+    
+    @OneToOne
     private Address address;
+    
+    @OneToMany
     private List<Apartment> apartments;
-    private List<RentalInfo> rentalInfo ;
+    
+    @OneToMany
+    private List<RentalInfo> rentalInfo;
+
+    
+    
+    
     
     public int getId() {
         return id;
@@ -106,6 +133,45 @@ public class User {
     public void setRentalInfo(List<RentalInfo> rentalInfo) {
         this.rentalInfo = rentalInfo;
     }
+
+    public String getRole()
+    {
+        return role;
+    }
+
+    public void setRole(String role)
+    {
+        this.role = role;
+    }
     
+    public boolean isEnabled()
+    {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled)
+    {
+        this.enabled = enabled;
+    }
+
+    public String getProfileImage()
+    {
+        return profileImage;
+    }
+
+    public void setProfileImage(String profileImage)
+    {
+        this.profileImage = profileImage;
+    }
+
+    public MultipartFile getPicture()
+    {
+        return picture;
+    }
+
+    public void setPicture(MultipartFile picture)
+    {
+        this.picture = picture;
+    }
     
 }

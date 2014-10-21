@@ -6,16 +6,26 @@
 
 package com.waa.ars.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Transient;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
  * @author CKarki
  */
+@Entity(name = "PICTURE")
 public class Picture {
     
+    @Id
+    @GeneratedValue
     private int id;
+    
+    @Transient
     private MultipartFile image;
+    
     private String fileName;
 
     public int getId() {
