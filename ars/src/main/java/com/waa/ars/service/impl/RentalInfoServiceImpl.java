@@ -7,11 +7,12 @@
 package com.waa.ars.service.impl;
 
 import com.waa.ars.service.ApartmentService;
+import com.waa.ars.service.RentalInfoService;
 
 /**
  *
  * @author CKarki
  */
-public class RentalInfoServiceImpl implements ApartmentService {
+public class RentalInfoServiceImpl implements RentalInfoService {
     
 }

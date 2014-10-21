@@ -6,10 +6,14 @@
 
 package com.waa.ars.service;
 
+import com.waa.ars.domain.Apartment;
+
 /**
  *
  * @author CKarki
  */
 public interface ApartmentService {
+    
+    void addApartment(Apartment apartment);
     
 }

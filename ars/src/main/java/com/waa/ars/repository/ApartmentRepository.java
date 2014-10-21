@@ -6,12 +6,16 @@
 
 package com.waa.ars.repository;
 
+import com.waa.ars.domain.Apartment;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author CKarki
  */
-public interface ApartmentRepository extends CrudRepository {
-    
+
+@Repository
+public interface ApartmentRepository extends CrudRepository<Apartment,String> {
+
 }

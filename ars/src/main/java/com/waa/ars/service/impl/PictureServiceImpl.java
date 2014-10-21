@@ -7,11 +7,12 @@
 package com.waa.ars.service.impl;
 
 import com.waa.ars.service.ApartmentService;
+import com.waa.ars.service.PictureService;
 
 /**
  *
  * @author CKarki
  */
-public class PictureServiceImpl implements ApartmentService{
+public class PictureServiceImpl implements PictureService{
     
 }
