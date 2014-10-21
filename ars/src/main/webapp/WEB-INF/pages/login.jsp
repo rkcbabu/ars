@@ -4,65 +4,52 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!-- Begin Body -->
 <div class="container">
-	<div class="row">
-  		<div class="col col-sm-3">
-              	
-                    <jsp:include page="includes/sidebar.jsp" />    
-                    
-                    
-      		</div>  
-      		<div class="col col-sm-9">
-              <div class="panel">
-              <h1>User Login</h1>
-              
-              
-              <c:if test="${not empty error}">
-			<div class="error">${error}</div>
-		</c:if>
-		<c:if test="${not empty msg}">
-			<div class="msg">${msg}</div>
-		</c:if>
+    <div class="row">
+        <!-- <div class="col col-sm-3">
+            <jsp:include page="includes/sidebar.jsp" />    
+        </div>-->  
+        <div class="col col-sm-12">
+            <div class="panel">
+                <h1>User Login</h1>
 
-		<form name='loginForm'
-			action="<c:url value='/j_spring_security_check' />" method='POST'>
+
+                <c:if test="${not empty error}">
+                    <div class="error">${error}</div>
+                </c:if>
+                <c:if test="${not empty msg}">
+                    <div class="msg">${msg}</div>
+                </c:if>
+
+                <form name='loginForm'
+                      action="<c:url value='/j_spring_security_check' />" method='POST'>
 
                     <table class="loginTable">                                                                                                                                        
-				<tr>
-					<td>User:</td>
-                                        <td><input class="form-control" type='text' name='username'></td>
-				</tr>
-				<tr>
-					<td>Password:</td>
-                                        <td><input class="form-control" type='password' name='password' /></td>
-				</tr>
-				<tr>
-                                    <td colspan='2'><input class="btn btn-primary btn-danger" name="submit" type="submit"
-						value="Submit" /></td>
-				</tr>
-			</table>
+                        <tr>
+                            <td>User:</td>
+                            <td><input class="form-control" type='text' name='username'></td>
+                        </tr>
+                        <tr>
+                            <td>Password:</td>
+                            <td><input class="form-control" type='password' name='password' /></td>
+                        </tr>
+                        <tr>
+                            <td colspan='2'><input class="btn btn-primary btn-danger" name="submit" type="submit"
+                                                   value="Submit" /></td>
+                        </tr>
+                    </table>
 
-			<input type="hidden" name="${_csrf.parameterName}"
-				value="${_csrf.token}" />
+                    <input type="hidden" name="${_csrf.parameterName}"
+                           value="${_csrf.token}" />
 
-		</form>
-              
-              
-              
-              	<h1><a href="#"><i class="glyphicon glyphicon-user"></i> <i class="glyphicon glyphicon-chevron-down"></i></a></h1>
-              
-              	<hr>
-              	<h4><a href="http://bootply.com/">Bootply</a></h4>
-              	<hr>
-             	</div>
-      	</div> 
-  	</div>
+                </form>
+
+
+
+                <hr>
+            </div>
+        </div> 
+    </div>
 </div>
-
-
-
-	<!-- script references -->
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-		<script src="resources/js/bootstrap.min.js"></script>
-		<script src="resources/js/scripts.js"></script>
-	</body>
+<jsp:include page="includes/footer.jsp" />                      
+</body>
 </html>
