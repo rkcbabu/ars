@@ -6,6 +6,8 @@
 
 package com.waa.ars.domain;
 
+import java.util.List;
+
 /**
  *
  * @author CKarki
@@ -20,6 +22,8 @@ public class User {
     private String email;
     
     private Address address;
+    private List<Apartment> apartments;
+    private List<RentalInfo> rentalInfo ;
     
     public int getId() {
         return id;
@@ -85,6 +89,22 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public List<Apartment> getApartments() {
+        return apartments;
+    }
+
+    public void setApartments(List<Apartment> apartments) {
+        this.apartments = apartments;
+    }
+
+    public List<RentalInfo> getRentalInfo() {
+        return rentalInfo;
+    }
+
+    public void setRentalInfo(List<RentalInfo> rentalInfo) {
+        this.rentalInfo = rentalInfo;
     }
     
     

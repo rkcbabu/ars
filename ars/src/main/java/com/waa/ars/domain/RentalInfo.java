@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.waa.ars.domain;
 
 import java.util.Date;
@@ -13,14 +12,14 @@ import java.util.Date;
  * @author CKarki
  */
 public class RentalInfo {
+
     private int id;
     private Apartment apartment;
-    private Buyer buyer;
+    private User user;
     private Date bookDate;
     private Date rentalDate;
     private Date endDate;
     private String status;
-    
 
     public int getId() {
         return id;
@@ -38,12 +37,12 @@ public class RentalInfo {
         this.apartment = apartment;
     }
 
-    public Buyer getBuyer() {
-        return buyer;
+    public User getUser() {
+        return user;
     }
 
-    public void setBuyer(Buyer buyer) {
-        this.buyer = buyer;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public Date getBookDate() {
@@ -77,7 +76,5 @@ public class RentalInfo {
     public void setStatus(String status) {
         this.status = status;
     }
-    
-    
-    
+
 }

@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.waa.ars.domain;
 
 import java.util.List;
@@ -13,10 +12,11 @@ import java.util.List;
  * @author CKarki
  */
 public class Apartment {
+
     private int id;
     private String title;
     private String description;
-    
+
     private Address apartmentAddress;
     private String roomCount;
     private String rate;
@@ -24,7 +24,7 @@ public class Apartment {
     private String status;
 
     private List<Picture> pictures;
-    
+
     public int getId() {
         return id;
     }
@@ -96,9 +96,5 @@ public class Apartment {
     public void setStatus(String status) {
         this.status = status;
     }
-    
-    
-    
-            
-    
+
 }
