@@ -6,10 +6,14 @@
 
 package com.waa.ars.service;
 
-/**
- *
- * @author CKarki
- */
+import com.waa.ars.domain.RentalInfo;
+import java.util.List;
+
+
 public interface RentalInfoService {
-    
+        List<RentalInfo> findAll();
+
+	RentalInfo findOne(String rentalInfoID);
+	
+	void save(RentalInfo rentalInfo);
 }
