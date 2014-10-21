@@ -59,7 +59,7 @@
     <div class="container">
         <div class="row">
             <div class="col col-sm-6">
-                <h1><a href="#" title="scroll down for your viewing pleasure">Apartment Rental Service</a>
+                <h1><a href='<c:url value="/"/>' title="scroll down for your viewing pleasure">Apartment Rental Service</a>
                     <p class="lead">Renting service made easy</p></h1>
             </div>
             <div class="col col-sm-6">

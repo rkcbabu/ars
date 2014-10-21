@@ -12,7 +12,9 @@
         <div class="col col-sm-9">
             <div class="panel">
                 <h1>User Registration</h1>
-                <form:form modelAttribute="user" method="post">
+                <c:url value="/save" var="registerUrl"/>
+                <form:form action="${registerUrl}" modelAttribute="newUser" method="post" enctype="multipart/form-data">
+                    <form:errors path="*" cssClass="error" element="p"/>
                 <p>
                     <label>First Name : </label>
                     <form:input path="firstName" cssClass="form-control short" />
@@ -57,8 +59,9 @@
                 
                 <p>
                     <label>Profile Image : </label>
-                    <form:input path="profileImage" type="file" cssClass=" short" />
+                    <form:input path="picture" type="file" cssClass=" short" />
                 </p>
+                
                 
                 <input class="btn btn-primary" type="submit" value="Submit"/>
                 
