@@ -11,6 +11,8 @@
         <div class="col col-sm-9">
             <div class="panel">
                 <h1>User Login</h1>
+                
+                <p>${param.message}</p>
 
 
                 <c:if test="${not empty error}">

@@ -6,6 +6,7 @@
 
 package com.waa.ars.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -37,6 +38,8 @@ public class User {
     private boolean enabled;
     
     private String profileImage;
+    
+    private String role;
     
     @Transient
     private MultipartFile picture;
@@ -177,5 +180,17 @@ public class User {
     {
         this.picture = picture;
     }
+
+    public String getRole()
+    {
+        return role;
+    }
+
+    public void setRole(String role)
+    {
+        this.role = role;
+    }
+
+    
     
 }

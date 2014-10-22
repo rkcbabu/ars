@@ -12,6 +12,9 @@
         <div class="col col-sm-9">
             <div class="panel">
                 <h1>User Registration</h1>
+                
+                <p class="error">${message}</p>
+                
                 <form:form modelAttribute="newUser" method="post" enctype="multipart/form-data">
                     <form:errors path="*" cssClass="error" element="p"/>
                 <p>
@@ -22,15 +25,19 @@
                     <label>Last Name : </label>
                     <form:input path="lastName" cssClass="form-control short" />
                 </p>
-                <p>
-                    <label>User Name : </label>
-                    <form:input readonly="${readonly}" path="username" cssClass="form-control short" />
+                
+                <c:if test="${editMode != true}">
+                    <p>
+                        <label>User Name : </label>
+                        <form:input readonly="${readonly}" path="username" cssClass="form-control short" />
+
+                    </p>
+                    <p>
+                        <label>Password : </label>
+                        <form:input path="password" type="password" cssClass="form-control short" />
+                    </p>
+                </c:if>
                     
-                </p>
-                <p>
-                    <label>Password : </label>
-                    <form:input path="password" type="password" cssClass="form-control short" />
-                </p>
                 <p>
                     <label>Email : </label>
                     <form:input path="email" type="email" cssClass="form-control short" />

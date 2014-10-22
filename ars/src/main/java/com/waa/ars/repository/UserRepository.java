@@ -7,7 +7,9 @@
 package com.waa.ars.repository;
 
 import com.waa.ars.domain.User;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 
@@ -15,4 +17,7 @@ import org.springframework.stereotype.Repository;
 public interface UserRepository extends CrudRepository<User, String>
 {
     User getUserByUsername(String username);
+    
+    
+    
 }

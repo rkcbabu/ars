@@ -151,4 +151,10 @@ footer {
     border-radius: 10px;
     box-shadow: 0 0 10px #ccc;
 }
+
+
+.error {
+    color: #ee3333;
+}
+
 /* end theme */

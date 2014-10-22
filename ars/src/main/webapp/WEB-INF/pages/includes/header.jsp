@@ -10,6 +10,11 @@
                 <li><a href="/ars/">Home</a></li>
                 <li><a href="about">About </a></li>
                 <li><a href="contact">Contact us</a></li>
+                
+                
+                
+                
+                
             </ul>
             <ul class="nav navbar-right navbar-nav">
                 <li class="dropdown">
