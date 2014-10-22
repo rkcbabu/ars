@@ -10,12 +10,9 @@ import com.waa.ars.domain.Apartment;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-/**
- *
- * @author CKarki
- */
-
 @Repository
-public interface ApartmentRepository extends CrudRepository<Apartment,String> {
+public interface ApartmentRepository extends CrudRepository<Apartment, Integer> {
 
+    @Override
+    public Apartment findOne(Integer arg0);
 }
