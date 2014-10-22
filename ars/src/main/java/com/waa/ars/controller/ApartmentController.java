@@ -41,13 +41,13 @@ public class ApartmentController {
     ApartmentService apartmentService;
     
     @RequestMapping(value = "/add", method = RequestMethod.GET)
-    public String saveApartment(@ModelAttribute("newApartment")Apartment apartment){
+    public String addApartmentForm(@ModelAttribute("newApartment")Apartment apartment){
       
         return "apartmentForm";
     }
     
     @RequestMapping(value= "/add", method = RequestMethod.POST)
-    public String processAddNewProductForm(@ModelAttribute("newApartment") Apartment apartment, BindingResult result,
+    public String processAddNewApartmentForm(@ModelAttribute("newApartment") Apartment apartment, BindingResult result,
             HttpServletRequest request,Model map){
         
         if(result.hasErrors())
@@ -86,6 +86,14 @@ public class ApartmentController {
         }
         return "apartment";
     }
+    
+//    @RequestMapping("/view")
+//    public String viewApartment(){
+//        return "apartment";
+//    }
+    
+
+
     
     @RequestMapping(value = "/view/{apartmentId}", method = RequestMethod.GET)
     public String displayApartment(@PathVariable("apartmentId") Integer apartmentId, Model model) {
