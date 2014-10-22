@@ -5,8 +5,12 @@
  */
 package com.waa.ars.domain;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import javax.persistence.CascadeType;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -14,6 +18,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Transient;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
@@ -36,8 +42,15 @@ public class Apartment {
     private String facilities;
     private String status;
     
-    @OneToMany
-    private List<Picture> pictures;
+    @Transient
+    private List<MultipartFile> apartImages;   
+    
+    @ElementCollection
+    private Set<String> fileNames = new HashSet();
+    
+            
+    //@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    //private List<Picture> pictures;
 
     public int getId() {
         return id;
@@ -63,13 +76,13 @@ public class Apartment {
         this.description = description;
     }
 
-    public List<Picture> getPictures() {
-        return pictures;
-    }
-
-    public void setPictures(List<Picture> pictures) {
-        this.pictures = pictures;
-    }
+//    public List<Picture> getPictures() {
+//        return pictures;
+//    }
+//
+//    public void setPictures(List<Picture> pictures) {
+//        this.pictures = pictures;
+//    }
 
     public Address getAddress() {
         return address;
@@ -109,6 +122,22 @@ public class Apartment {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public List<MultipartFile> getApartImages() {
+        return apartImages;
+    }
+
+    public void setApartImages(List<MultipartFile> apartImages) {
+        this.apartImages = apartImages;
+    }
+
+    public Set<String> getFileNames() {
+        return fileNames;
+    }
+
+    public void setFileNames(Set<String> fileNames) {
+        this.fileNames = fileNames;
     }
 
 }
