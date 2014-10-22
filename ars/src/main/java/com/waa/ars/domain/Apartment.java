@@ -16,6 +16,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Transient;
@@ -35,8 +36,6 @@ public class Apartment {
     private String title;
     private String description;
     
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private Address address;
     private String roomCount;
     private String rate;
     private String facilities;
@@ -48,6 +47,14 @@ public class Apartment {
     @ElementCollection
     private Set<String> fileNames = new HashSet();
     
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private Address address;
+    
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private User owner;
+    
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
+    private List<RentalInfo> rentalInfos;
             
     //@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     //private List<Picture> pictures;
@@ -138,6 +145,22 @@ public class Apartment {
 
     public void setFileNames(Set<String> fileNames) {
         this.fileNames = fileNames;
+    }
+
+    public User getOwner() {
+        return owner;
+    }
+
+    public void setOwner(User owner) {
+        this.owner = owner;
+    }
+
+    public List<RentalInfo> getRentalInfos() {
+        return rentalInfos;
+    }
+
+    public void setRentalInfos(List<RentalInfo> rentalInfos) {
+        this.rentalInfos = rentalInfos;
     }
 
 }

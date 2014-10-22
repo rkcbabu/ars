@@ -44,18 +44,15 @@ public class User {
     @Transient
     private MultipartFile picture;
 
-    
-    
+
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Address address;
     
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "owner")
     private List<Apartment> apartments;
     
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "user")
     private List<RentalInfo> rentalInfo;
-
-    
     
     
     
