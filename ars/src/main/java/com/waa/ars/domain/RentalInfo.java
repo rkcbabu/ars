@@ -6,7 +6,9 @@
 package com.waa.ars.domain;
 
 import java.util.Date;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
@@ -15,24 +17,23 @@ import javax.persistence.OneToOne;
  *
  * @author CKarki
  */
-
 @Entity(name = "RENTALINFO")
 public class RentalInfo {
 
     @Id
     @GeneratedValue
     private int id;
-    
-    @OneToOne
+
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Apartment apartment;
-    
-    @OneToOne
+
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private User user;
-    
+
     private Date bookDate;
     private Date rentalDate;
     private Date endDate;
-    private String status;
+    private Status status;
 
     public int getId() {
         return id;
@@ -82,11 +83,11 @@ public class RentalInfo {
         this.endDate = endDate;
     }
 
-    public String getStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 
