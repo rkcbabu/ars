@@ -4,6 +4,22 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib  prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!-- Begin Body -->
+<script
+src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script>  
+$(document).ready(function() {
+    //add more file components if Add is clicked
+    $('#addImage').click(function() {
+        var fileIndex = $('#imageTable tr').children().length - 1;
+        $('#imageTable').append(
+                '<tr><td>'+
+                '   <input type="file" name="apartImages['+ fileIndex +']" />'+
+                '</td></tr>');
+    });
+     
+});
+</script>
+
 <div class="container">
     <div class="row">
          <div class="col col-sm-3">
@@ -12,42 +28,63 @@
         <div class="col col-sm-9">
             <div class="panel">
                 <h1>Add Apartment</h1>
-                <form:form modelAttribute="newApartment" method="post">
-                <p>
-                    <label>Title : </label>
-                    <form:input path="title" cssClass="form-control short" />
-                </p>
-                <p>
-                    <label>Description : </label>
-                    <form:input path="description" cssClass="form-control short" />
-                </p>
-                <p>
-                    <label>Address : </label>
-                    <form:input path="address" cssClass="form-control short" />
-                </p>
-                <p>
-                    <label>Number of rooms : </label>
-                    <form:input path="roomCount" cssClass="form-control short" />
-                </p>
-                <p>
-                    <label>Rate per month : </label>
-                    <form:input path="rate" cssClass="form-control short" />
-                </p>
-                <p>
-                    <label>Facilities : </label>
-                    <form:input path="facilities" cssClass="form-control short" />
-                </p>
-                <p>
-                    <label>Status : </label>
-                    <%--<form:input path="status" cssClass="form-control short" />--%>
-                </p>
-<!--                <p>
-                    <label>Apartment Image : </label>
-                    <%--<form:input path="apartImage" type="file" cssClass=" short" />--%>
-                </p>-->
-              
-                <input class="btn btn-primary" type="submit" value="Submit"/>
-                
+                <form:form modelAttribute="newApartment" method="post" enctype="multipart/form-data">
+                    <p>
+                        <label>Title : </label>
+                        <form:input path="title" cssClass="form-control short" />
+                    </p>
+                    <p>
+                        <label>Description : </label>
+                        <form:input path="description" cssClass="form-control short" />
+                    </p>
+                    <p>
+                        <label>Address </label>
+                    </p>
+                    <p>
+                        <label>Street : </label>
+                        <form:input path="address.street" cssClass="form-control short" />
+                    </p>
+                    <p>
+                        <label>City : </label>
+                        <form:input path="address.city" cssClass="form-control short" />
+                    </p>
+                    <p>
+                        <label>State : </label>
+                        <form:input path="address.stateName" cssClass="form-control short" />
+                    </p>
+                    <p>
+                        <label>Zip Code : </label>
+                        <form:input path="address.zip" cssClass="form-control short" />
+                    </p>
+                    <p>
+                        <label>Number of rooms : </label>
+                        <form:input path="roomCount" cssClass="form-control short" />
+                    </p>
+                    <p>
+                        <label>Rate per month : </label>
+                        <form:input path="rate" cssClass="form-control short" />
+                    </p>
+                    <p>
+                        <label>Facilities : </label>
+                        <form:input path="facilities" cssClass="form-control short" />
+                    </p>
+                    <p>
+                        <label>Status : </label>
+                        <form:input path="status" cssClass="form-control short" />
+                    </p>
+                    <p>
+                        <label>Select Apartment Images to upload. Press Add button to add more image inputs : </label>
+                        <br>
+                        <input id ="addImage" type="button" value="Add Image" />
+                        <table id="imageTable">
+                            <tr>
+                                <td><input name="apartImages[0]" type="file" cssClass=" short" /></td>
+                            </tr>   
+                        </table>
+                    </p>
+
+                    <input class="btn btn-primary" type="submit" value="Submit"/>
+
                 </form:form>
 
 

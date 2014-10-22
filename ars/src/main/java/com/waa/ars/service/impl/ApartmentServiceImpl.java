@@ -27,7 +27,7 @@ public class ApartmentServiceImpl implements ApartmentService{
     
     @Override
     public void addApartment(Apartment apartment) {
-        apartRepository.save(apartment); //To change body of generated methods, choose Tools | Templates.
+        apartRepository.save(apartment); 
     }
     
 }
