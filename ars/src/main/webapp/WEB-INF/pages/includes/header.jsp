@@ -42,7 +42,7 @@
                                 <form action="<c:url value="/j_spring_security_logout"/>" method="post" id="logoutForm">
                                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
                                 </form>
-                                <li><a href="user/profile">Profile</a></li>
+                                <li><a href="<c:url value="/profile"/>">Profile</a></li>
                                 <li class="divider"></li>
                                 <li><a onclick="document.getElementById('logoutForm').submit()" href="#"> Logout</a></li>
                                 </c:otherwise>

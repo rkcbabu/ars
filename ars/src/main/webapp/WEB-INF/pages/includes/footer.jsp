@@ -6,6 +6,6 @@
 </footer> 
 </div>
 <!-- script references -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-<script src="resources/js/bootstrap.min.js"></script>
-<script src="resources/js/scripts.js"></script>
+<script src='<c:url value="/resources/js/jquery.min.js"/>'></script>
+<script src='<c:url value="/resources/js/bootstrap.min.js"/>'></script>
+    <script src='<c:url value="/resources/js/scripts.js"/>'></script>

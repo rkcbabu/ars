@@ -10,6 +10,8 @@ import com.waa.ars.domain.User;
 import com.waa.ars.repository.UserRepository;
 import com.waa.ars.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.MailSender;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -30,6 +32,12 @@ public class UserServiceImpl implements UserService
     {
         userRepository.save(user);
         
+    }
+
+    @Override
+    public User getUserByUsername(String username)
+    {
+        return userRepository.getUserByUsername(username);
     }
     
 }

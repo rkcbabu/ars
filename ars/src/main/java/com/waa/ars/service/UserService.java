@@ -15,4 +15,5 @@ import com.waa.ars.domain.User;
 public interface UserService
 {
     void registerUser(User user);
+    User getUserByUsername(String username);
 }

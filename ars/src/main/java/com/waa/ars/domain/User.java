@@ -27,7 +27,7 @@ public class User {
     private int id;
     private String username;
     private String password;
-    private String role;
+    private String verificationCode;
     private String firstName;
     private String lastName;
     private String phone;
@@ -136,14 +136,14 @@ public class User {
         this.rentalInfo = rentalInfo;
     }
 
-    public String getRole()
+    public String getVerificationCode()
     {
-        return role;
+        return verificationCode;
     }
 
-    public void setRole(String role)
+    public void setVerificationCode(String verificationCode)
     {
-        this.role = role;
+        this.verificationCode = verificationCode;
     }
     
     public boolean isEnabled()

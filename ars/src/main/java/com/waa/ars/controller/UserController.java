@@ -9,19 +9,21 @@ package com.waa.ars.controller;
 import com.waa.ars.domain.User;
 import com.waa.ars.service.UserService;
 import java.io.File;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.security.Principal;
 import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.lang.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.DigestUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
@@ -30,15 +32,14 @@ import org.springframework.web.multipart.MultipartFile;
  */
 
 @Controller
+@SessionAttributes("currentUser")
 public class UserController
 {
     
     @Autowired
     UserService userService;
     
-    
-    
-    
+       
     @RequestMapping("/register")
     public String register(Model model)
     {
@@ -52,7 +53,7 @@ public class UserController
     
     
     
-    @RequestMapping(value = "/save" , method = RequestMethod.POST)
+    @RequestMapping(value = "/register" , method = RequestMethod.POST)
     public String saveUser(@ModelAttribute("newUser") User newUser, BindingResult result, HttpServletRequest request, Model model)
     {
         model.addAttribute("newUser", newUser);
@@ -66,12 +67,13 @@ public class UserController
         MultipartFile loadedPicture = newUser.getPicture();
         
         String rootDirectory = request.getSession().getServletContext().getRealPath("/");
+        String randString = RandomStringUtils.randomAlphanumeric(10);
         
         if(loadedPicture != null && !loadedPicture.isEmpty())
         {
             try
             {
-                String randString = RandomStringUtils.randomAlphanumeric(10);
+                
                 String newfilename = newUser.getUsername() + "_" + randString + ".jpg";
                 
                 loadedPicture.transferTo(new File(rootDirectory+"\\resources\\userpics\\"+newfilename));
@@ -81,13 +83,14 @@ public class UserController
             } catch (Exception ex){
                 throw new RuntimeException("Product Image saving failed", ex);
             }
-            
         }
         
+        newUser.setVerificationCode(randString);
+        
         try{
-            userService.registerUser(newUser);
+            userService.registerUser(newUser);    
         }catch(Exception e){
-            System.err.println("User Registration Failed");
+            System.out.println("User Registration Failed");
         }
         
         return "redirect:/";
@@ -96,8 +99,15 @@ public class UserController
     
     
     
-    
-    
+    @Secured({"ROLE_USER","ROLE_ADMIN"})
+    @RequestMapping("/profile")
+    public String userProfile(Principal principal, Model model)
+    {
+        
+        model.addAttribute("currentUser", userService.getUserByUsername(principal.getName()));
+        
+        return "profile";
+    }
     
     
     

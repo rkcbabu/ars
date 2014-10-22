@@ -12,8 +12,7 @@
         <div class="col col-sm-9">
             <div class="panel">
                 <h1>User Registration</h1>
-                <c:url value="/save" var="registerUrl"/>
-                <form:form action="${registerUrl}" modelAttribute="newUser" method="post" enctype="multipart/form-data">
+                <form:form modelAttribute="newUser" method="post" enctype="multipart/form-data">
                     <form:errors path="*" cssClass="error" element="p"/>
                 <p>
                     <label>First Name : </label>
