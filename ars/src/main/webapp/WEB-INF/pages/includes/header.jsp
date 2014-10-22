@@ -8,8 +8,8 @@
         <div class="nav-collapse collase">
             <ul class="nav navbar-nav">  
                 <li><a href="/ars/">Home</a></li>
-                <li><a href="/about">About </a></li>
-                <li><a href="/contact">Contact us</a></li>
+                <li><a href="about">About </a></li>
+                <li><a href="contact">Contact us</a></li>
             </ul>
             <ul class="nav navbar-right navbar-nav">
                 <li class="dropdown">
@@ -64,7 +64,7 @@
             </div>
             <div class="col col-sm-6">
                 <div class="well pull-right">
-                    <img src="//placehold.it/280x100/E7E7E7">        
+                    <img src="resources/images/logo.png" alt="Logo"/>
                 </div>
             </div>
         </div>

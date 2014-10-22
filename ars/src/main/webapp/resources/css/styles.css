@@ -144,8 +144,11 @@ footer {
 .userImage {
     background-position: center center;
     background-size: cover;
-    height: 150px;
-    width: 120px;
+    height: 250px;
+    width: 220px;
     float: right;
+    border:5px solid #FFF;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #ccc;
 }
 /* end theme */

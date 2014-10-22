@@ -15,6 +15,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Transient;
+import javax.persistence.UniqueConstraint;
 import org.springframework.web.multipart.MultipartFile;
 
 
@@ -25,6 +26,7 @@ public class User {
     @Id
     @GeneratedValue
     private int id;
+    
     private String username;
     private String password;
     private String verificationCode;

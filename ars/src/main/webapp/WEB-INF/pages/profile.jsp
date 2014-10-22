@@ -12,9 +12,23 @@
         <div class="col col-sm-9">
             <div class="panel">
                 <h1>User Profile</h1>
-                <c:url var="userImage" value="/resources/userpics/${currentUser.username}_${currentUser.profileImage}"/>
-                <div class="userImage" style="background: url(${userImage})"></div>
-                <p>${currentUser.firstName}</p>
+                <c:url var="userImage" value="/resources/userpics/${newUser.profileImage}"/>
+                <div class="userImage" style="background-image: url(${userImage})"></div>
+                <p>Full Name :</p>
+                <p><strong>${newUser.firstName} ${currentUser.lastName}</strong></p>
+                <p>User Name :</p>
+                <p><strong>${newUser.username}</strong></p>
+                <p>Phone :</p>
+                <p><strong>${newUser.phone}</strong></p>
+                <p>Email :</p>
+                <p><strong>${newUser.email}</strong></p>
+                <p>Address :</p>
+                <p>
+                    <strong>${newUser.address.street}</strong><br/>
+                    <strong>${newUser.address.city}</strong><br/>
+                    <strong>${newUser.address.stateName}</strong><br/>
+                    <strong>${newUser.address.zip}</strong><br/>
+                </p>
                 
                 
                 

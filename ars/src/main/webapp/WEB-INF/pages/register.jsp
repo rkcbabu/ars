@@ -24,7 +24,8 @@
                 </p>
                 <p>
                     <label>User Name : </label>
-                    <form:input path="username" cssClass="form-control short" />
+                    <form:input readonly="${readonly}" path="username" cssClass="form-control short" />
+                    
                 </p>
                 <p>
                     <label>Password : </label>

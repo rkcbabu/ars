@@ -32,7 +32,7 @@ import org.springframework.web.multipart.MultipartFile;
  */
 
 @Controller
-@SessionAttributes("currentUser")
+@SessionAttributes("newUser")
 public class UserController
 {
     
@@ -104,12 +104,44 @@ public class UserController
     public String userProfile(Principal principal, Model model)
     {
         
-        model.addAttribute("currentUser", userService.getUserByUsername(principal.getName()));
+        model.addAttribute("newUser", userService.getUserByUsername(principal.getName()));
         
         return "profile";
     }
     
     
+    
+    
+    @Secured({"ROLE_USER","ROLE_ADMIN"})
+    @RequestMapping(value = "/profile/edit", method = RequestMethod.GET)
+    public String editProfile()
+    {
+        
+        //model.addAttribute("currentUser", userService.getUserByUsername(principal.getName()));
+        
+        return "register";
+    }
+    
+    
+    @Secured({"ROLE_USER","ROLE_ADMIN"})
+    @RequestMapping(value = "/profile/edit", method = RequestMethod.POST)
+    public String updateProfile(@ModelAttribute("newUser") User user, BindingResult result, Model model)
+    {
+        if(result.hasErrors())
+            return "register";
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        userService.registerUser(user);
+        
+        return "redirect:/profile";
+    }
     
     
 }
