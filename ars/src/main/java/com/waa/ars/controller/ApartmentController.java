@@ -23,6 +23,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
@@ -86,7 +87,11 @@ public class ApartmentController {
         return "apartment";
     }
     
-    
+    @RequestMapping(value = "/view/{apartmentId}", method = RequestMethod.GET)
+    public String displayApartment(@PathVariable("apartmentId") Integer apartmentId, Model model) {
+        model.addAttribute("apartment", apartmentService.getApartmentById(apartmentId));
+        return "displayApartment";
+    }
         
     
 }

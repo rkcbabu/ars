@@ -29,5 +29,8 @@ public class ApartmentServiceImpl implements ApartmentService{
     public void addApartment(Apartment apartment) {
         apartRepository.save(apartment); 
     }
-    
+    @Override
+    public Apartment getApartmentById(Integer apartmentID) {
+        return apartRepository.findOne(apartmentID);
+    }
 }
