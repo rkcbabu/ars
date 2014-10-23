@@ -6,6 +6,7 @@
 package com.waa.ars.service;
 
 import com.waa.ars.domain.Apartment;
+import java.util.List;
 
 /**
  *
@@ -16,4 +17,8 @@ public interface ApartmentService {
     void addApartment(Apartment apartment);
 
     Apartment getApartmentById(Integer apartmentID);
+    
+    public List<Apartment> getAllApartments();
+    
+    
 }

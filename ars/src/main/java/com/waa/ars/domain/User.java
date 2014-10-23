@@ -48,11 +48,11 @@ public class User {
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Address address;
     
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "owner")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Apartment> apartments;
     
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "user")
-    private List<RentalInfo> rentalInfo;
+//    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//    private List<RentalInfo> rentalInfo;
     
     
     
@@ -130,13 +130,13 @@ public class User {
         this.apartments = apartments;
     }
 
-    public List<RentalInfo> getRentalInfo() {
-        return rentalInfo;
-    }
-
-    public void setRentalInfo(List<RentalInfo> rentalInfo) {
-        this.rentalInfo = rentalInfo;
-    }
+//    public List<RentalInfo> getRentalInfo() {
+//        return rentalInfo;
+//    }
+//
+//    public void setRentalInfo(List<RentalInfo> rentalInfo) {
+//        this.rentalInfo = rentalInfo;
+//    }
 
     public String getVerificationCode()
     {

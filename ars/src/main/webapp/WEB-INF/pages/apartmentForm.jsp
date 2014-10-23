@@ -10,7 +10,7 @@ src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 $(document).ready(function() {
     //add more file components if Add is clicked
     $('#addImage').click(function() {
-        var fileIndex = $('#imageTable tr').children().length - 1;
+        var fileIndex = $('#imageTable tr').children().length;
         $('#imageTable').append(
                 '<tr><td>'+
                 '   <input type="file" name="apartImages['+ fileIndex +']" />'+
@@ -28,14 +28,26 @@ $(document).ready(function() {
         <div class="col col-sm-9">
             <div class="panel">
                 <h1>Add Apartment</h1>
-                <form:form modelAttribute="newApartment" method="post" enctype="multipart/form-data">
+                <form:form action="apartment/add" modelAttribute="newApartment" method="post" enctype="multipart/form-data">
                     <p>
                         <label>Title : </label>
                         <form:input path="title" cssClass="form-control short" />
                     </p>
                     <p>
                         <label>Description : </label>
-                        <form:input path="description" cssClass="form-control short" />
+                        <form:textarea path="description" cssClass="form-control short"/>
+                    </p>
+                    <p>
+                        <label>Number of rooms : </label>
+                        <form:input path="roomCount" cssClass="form-control short" />
+                    </p>
+                    <p>
+                        <label>Rate per month : </label>
+                        <form:input path="rate" cssClass="form-control short" />
+                    </p>
+                    <p>
+                        <label>Facilities : </label>
+                        <form:input path="facilities" cssClass="form-control short" />
                     </p>
                     <p>
                         <label>Address </label>
@@ -56,22 +68,7 @@ $(document).ready(function() {
                         <label>Zip Code : </label>
                         <form:input path="address.zip" cssClass="form-control short" />
                     </p>
-                    <p>
-                        <label>Number of rooms : </label>
-                        <form:input path="roomCount" cssClass="form-control short" />
-                    </p>
-                    <p>
-                        <label>Rate per month : </label>
-                        <form:input path="rate" cssClass="form-control short" />
-                    </p>
-                    <p>
-                        <label>Facilities : </label>
-                        <form:input path="facilities" cssClass="form-control short" />
-                    </p>
-                    <p>
-                        <label>Status : </label>
-                        <form:input path="status" cssClass="form-control short" />
-                    </p>
+                    
                     <p>
                         <label>Select Apartment Images to upload. Press Add button to add more image inputs : </label>
                         <br>

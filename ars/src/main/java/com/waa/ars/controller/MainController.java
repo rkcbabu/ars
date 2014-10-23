@@ -2,8 +2,10 @@
 
 package com.waa.ars.controller;
 
+import com.waa.ars.service.ApartmentService;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
@@ -11,6 +13,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,16 +25,17 @@ import org.springframework.web.servlet.ModelAndView;
 @SessionAttributes(value = "currentUser")
 public class MainController {
     
+    @Autowired
+    ApartmentService apartmentService;
+    
 
 	@RequestMapping(value = { "/", "/welcome**" }, method = RequestMethod.GET)
-	public ModelAndView defaultPage() {
+	public String defaultPage(Model model) {
+            
+            model.addAttribute("apartments", apartmentService.getAllApartments());
 
-		ModelAndView model = new ModelAndView();
-		model.addObject("title", "Spring Security Login Form - Database Authentication");
-		model.addObject("message", "This is default page!");
-		model.setViewName("home");
-		return model;
-
+		
+            return "home";
 	}
         
         @Secured("ROLE_ADMIN")

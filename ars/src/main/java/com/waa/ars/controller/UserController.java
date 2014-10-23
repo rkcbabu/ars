@@ -105,8 +105,13 @@ public class UserController
         
         newUser.setVerificationCode(randString);
         newUser.setEnabled(true);
-        newUser.setRole("ROLE_USER");
+        
+        if(newUser.getUsername().equals("admin"))
+            newUser.setRole("ROLE_ADMIN");
+        else
+            newUser.setRole("ROLE_USER");
 
+        
         try{
             userService.registerUser(newUser); 
         }catch(Exception e){
@@ -230,6 +235,19 @@ public class UserController
            return "password";
         }
     }
+    
+    
+    
+    
+    @RequestMapping(value = "/user/apartments", method = RequestMethod.GET)
+    public String userApartments(Principal principal, Model model)
+    {
+        
+        model.addAttribute("apartments", userService.getUserByUsername(principal.getName()).getApartments());
+        
+        return "apartments";
+    }
+    
     
     
     

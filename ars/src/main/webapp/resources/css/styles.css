@@ -157,4 +157,17 @@ footer {
     color: #ee3333;
 }
 
+.apartments .box {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px dotted #ccc;
+}
+.apartments .box .image {
+    height: 200px;
+    width: 250px;
+    background-size: cover;
+    background-position: center center;
+    box-shadow: 0 0 10px #ccc;
+    border: 5px solid #fff;
+}
 /* end theme */

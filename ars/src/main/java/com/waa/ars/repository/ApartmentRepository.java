@@ -7,6 +7,7 @@
 package com.waa.ars.repository;
 
 import com.waa.ars.domain.Apartment;
+import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -15,4 +16,7 @@ public interface ApartmentRepository extends CrudRepository<Apartment, Integer> 
 
     @Override
     public Apartment findOne(Integer arg0);
+    
+    public List<Apartment> findAll();
+    
 }

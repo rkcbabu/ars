@@ -11,9 +11,11 @@
                 <li><a href="about">About </a></li>
                 <li><a href="contact">Contact us</a></li>
                 
+                <sec:authorize access="hasRole('ROLE_USER')">
+                    <li><a href="user/apartments">My Apartments</a></li>
+                    <li><a href="apartment/add">Add New Apartment</a></li>
                 
-                
-                
+                </sec:authorize>
                 
             </ul>
             <ul class="nav navbar-right navbar-nav">

@@ -44,17 +44,17 @@ public class Apartment {
     @Transient
     private List<MultipartFile> apartImages;   
     
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     private Set<String> fileNames = new HashSet();
-    
+            
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Address address;
     
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private User owner;
     
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
-    private List<RentalInfo> rentalInfos;
+//    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//    private List<RentalInfo> rentalInfos;
             
     //@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     //private List<Picture> pictures;
@@ -139,28 +139,32 @@ public class Apartment {
         this.apartImages = apartImages;
     }
 
-    public Set<String> getFileNames() {
-        return fileNames;
+    public ArrayList<String> getFileNames() {
+        return new ArrayList<String>(fileNames);
     }
 
     public void setFileNames(Set<String> fileNames) {
         this.fileNames = fileNames;
     }
 
-    public User getOwner() {
+    
+
+//    public List<RentalInfo> getRentalInfos() {
+//        return rentalInfos;
+//    }
+//
+//    public void setRentalInfos(List<RentalInfo> rentalInfos) {
+//        this.rentalInfos = rentalInfos;
+//    }
+
+    public User getOwner()
+    {
         return owner;
     }
 
-    public void setOwner(User owner) {
+    public void setOwner(User owner)
+    {
         this.owner = owner;
-    }
-
-    public List<RentalInfo> getRentalInfos() {
-        return rentalInfos;
-    }
-
-    public void setRentalInfos(List<RentalInfo> rentalInfos) {
-        this.rentalInfos = rentalInfos;
     }
 
 }

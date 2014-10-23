@@ -17,21 +17,23 @@
         </div>  
         <div class="col col-sm-9">
             <div class="panel">
-                <h1>Apartments</h1>
+                <h1>Apartment</h1>
+                <h2> ${apartment.title}</h2>
                 
+                <c:forEach items="${apartment.fileNames}" var="picture">
+                    <div class="slide">
+                        <img src="resources/apartImages/${picture}"/>
+                    </div>
+                </c:forEach>
                 
-          
-                
-                
-                <p> ${newApartment.title}</p>
-                <p> ${newApartment.description}</p>
-                <p> ${newApartment.address.street}</p>
-                <p> ${newApartment.address.city}</p>
-                <p> ${newApartment.address.stateName}</p>
-                <p> ${newApartment.address.zip}</p>
-                <p> ${newApartment.roomCount}</p>    
-                <p> ${newApartment.facilities}</p>  
-                <p> ${newApartment.status}</p> 
+                <p> Total Rooms: ${apartment.roomCount}</p>    
+                        <p> Facilities : ${apartment.facilities}</p>  
+                        <p> Description : ${apartment.description}</p>
+                        <p> Status : ${apartment.status}</p> 
+                        <p> Address : ${apartment.address.street}<br/>
+                         ${apartment.address.city}<br/>
+                         ${apartment.address.stateName}<br/>
+                         ${apartment.address.zip}</p>
                 
                   
                     
