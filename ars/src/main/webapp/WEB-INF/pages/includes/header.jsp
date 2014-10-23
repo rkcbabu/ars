@@ -1,5 +1,8 @@
+
 <%@taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+
 <nav class="navbar navbar-static">
     <div class="container">
         <a class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
@@ -7,15 +10,17 @@
         </a>
         <div class="nav-collapse collase">
             <ul class="nav navbar-nav">  
-                <li><a href="/ars/">Home</a></li>
-                <li><a href="about">About </a></li>
-                <li><a href="contact">Contact us</a></li>
+                <li><a href="/ars/"><spring:message code="Apartment.header.home"/></a></li>
+                <li><a href="about"><spring:message code="Apartment.header.about"/></a></li>
+                <li><a href="contact"><spring:message code="Apartment.header.contact"/></a></li>
+                <li><a href="?language=en">English</a></li><li><a href="?language=es">Spanish</a></li>
                 
                 <sec:authorize access="hasRole('ROLE_USER')">
                     <li><a href="user/apartments">My Apartments</a></li>
                     <li><a href="apartment/add">Add New Apartment</a></li>
                 
                 </sec:authorize>
+                    
                 
             </ul>
             <ul class="nav navbar-right navbar-nav">
@@ -32,7 +37,7 @@
                         <i class="glyphicon glyphicon-user"></i>
                         <c:choose>
                             <c:when test="${pageContext.request.userPrincipal.name == null}">
-                                Guest
+                                <spring:message code="Apartment.header.guest"/>
                             </c:when>
                             <c:otherwise>${pageContext.request.userPrincipal.name}</c:otherwise>
                         </c:choose>
@@ -41,15 +46,15 @@
 
                         <c:choose>
                             <c:when test="${pageContext.request.userPrincipal.name == null}">
-                                <li><a href="login">Login</a></li>
+                                <li><a href="login"><spring:message code="Apartment.header.login"/></a></li>
                                 <li class="divider"></li>
-                                <li><a href="<c:url value="/register"/>">Register</a></li>
+                                <li><a href="<c:url value="/register"/>"><spring:message code="Apartment.header.register"/></a></li>
                                 </c:when>
                                 <c:otherwise>
                                 <form action="<c:url value="/j_spring_security_logout"/>" method="post" id="logoutForm">
                                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
                                 </form>
-                                <li><a href="<c:url value="/profile"/>">Profile</a></li>
+                                <li><a href="<c:url value="/profile"/>"><spring:message code="Apartment.header.profile"/></a></li>
                                 <li class="divider"></li>
                                 <li><a onclick="document.getElementById('logoutForm').submit()" href="#"> Logout</a></li>
                                 </c:otherwise>
