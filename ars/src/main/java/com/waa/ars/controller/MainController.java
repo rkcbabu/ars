@@ -114,5 +114,12 @@ public class MainController {
 		return model;
 
 	}
-
+        @RequestMapping("/about")
+        public String about(){
+        return "about";
+        }
+        @RequestMapping("/contact")
+        public String contact(){
+        return "contact";
+        }
 }
